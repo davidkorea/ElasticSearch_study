@@ -37,7 +37,20 @@
     [root@localhost ~]# vim /etc/sysctl.conf   
     vm.max_map_count=262144
     ```
-
+- cancel the last docker compose
+    ```
+    [root@localhost ~]# docker-compose down -v
+    Stopping cerebro ... done
+    Stopping kibana7 ... done
+    Removing es7_02  ... done
+    Removing es7_01  ... done
+    Removing cerebro ... done
+    Removing kibana7 ... done
+    Removing network root_es7net
+    Removing volume root_es7data1
+    Removing volume root_es7data2
+    ```
+- `docker-compose up` again
 
 
 

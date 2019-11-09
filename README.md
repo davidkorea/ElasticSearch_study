@@ -37,6 +37,10 @@
     [root@localhost ~]# vim /etc/sysctl.conf   
     vm.max_map_count=262144
     ```
+    ```
+    [root@localhost ~]# sysctl -p
+    vm.max_map_count = 262144
+    ```
 - cancel the last docker compose
     ```
     [root@localhost ~]# docker-compose down -v

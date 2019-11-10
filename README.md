@@ -5,8 +5,8 @@ After 6.X version, one `index`(db) should and can only have one `type`(table).
     ```json
     POST user/_doc
     {
-        "name":"david".
-        "age":12
+        "name":"david",
+        "age":"12"
     }
     ```
 - then, you cannot exec 

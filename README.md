@@ -2,7 +2,7 @@
 
 After 6.X version, one `index`(db) should and can only have one `type`(table).
 - if you have created 
-    ```
+    ```json
     POST user/_doc
     {
         "name":"david".
@@ -10,15 +10,15 @@ After 6.X version, one `index`(db) should and can only have one `type`(table).
     }
     ```
 - then, you cannot exec 
-    ```
+    ```json
     POST user/abc
     {
         "id":"1234",
         "pw":"fghjk"
     }
     ```
-    end up with error
-    ```
+    end up with error: **Rejecting mapping update to [user] as the final mapping would have more than 1 type: [_doc, abc]**
+    ```json
     {
       "error": {
         "root_cause": [

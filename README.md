@@ -209,3 +209,22 @@ https://artifacts.elastic.co/downloads/logstash/logstash-7.1.0.tar.gz , version7
           ]
         }
         ```
+# 4. icu_analyzer
+```
+[root@bf89bfd7e1a7 elasticsearch]# ./bin/elasticsearch-plugin install analysis-icu
+-> Downloading analysis-icu from elastic
+[=================================================] 100%?? 
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.bouncycastle.jcajce.provider.drbg.DRBG (file:/usr/share/elasticsearch/lib/tools/plugin-cli/bcprov-jdk15on-1.61.jar) to constructor sun.security.provider.Sun()
+WARNING: Please consider reporting this to the maintainers of org.bouncycastle.jcajce.provider.drbg.DRBG
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+-> Installed analysis-icu
+```
+```
+[root@localhost ~]# docker-compose restart
+Restarting cerebro ... done
+Restarting es7_02  ... done
+Restarting es7_01  ... done
+Restarting kibana7 ... done
+```

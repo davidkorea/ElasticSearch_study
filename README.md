@@ -76,6 +76,8 @@ https://artifacts.elastic.co/downloads/logstash/logstash-7.1.0.tar.gz , version7
 
     - `docker exec -it DOCKER_ID /bin/bash`
         ```
+        [root@localhost ~]# docker exec -it ae02ee75b357 /bin/bash
+
         [root@ae02ee75b357 elasticsearch]# ./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.1.0/elasticsearch-analysis-ik-7.1.0.zip
         -> Downloading https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.1.0/elasticsearch-analysis-ik-7.1.0.zip
         [=================================================] 100%?? 

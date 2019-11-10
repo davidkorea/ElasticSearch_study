@@ -70,7 +70,8 @@ https://artifacts.elastic.co/downloads/logstash/logstash-7.1.0.tar.gz , version7
 
 -----
 
-# 3. Analyzer分词
+# 3. Analyzer tokenizer - IK Analysis for Elasticsearch
+
 
 1. install plugin for **EVERY** ElasticSearch docker node
 
@@ -94,4 +95,37 @@ https://artifacts.elastic.co/downloads/logstash/logstash-7.1.0.tar.gz , version7
     - Restart **EVERY** ElasticSearch `docker restart DOCKER_ID`
         ```
         [root@localhost ~]# docker restart ae02ee75b357
+        ```
+2. Demo tokenizer
+    - ik_smart
+        ```html
+        POST _analyze
+        {
+          "analyzer": "ik_smart",
+          "text": "中华人民共和国国歌"
+        }
+        ```
+        ```json
+        {
+          "tokens" : [
+            {
+              "token" : "中华人民共和国",
+              "start_offset" : 0,
+              "end_offset" : 7,
+              "type" : "CN_WORD",
+              "position" : 0
+            },
+            {
+              "token" : "国歌",
+              "start_offset" : 7,
+              "end_offset" : 9,
+              "type" : "CN_WORD",
+              "position" : 1
+            }
+          ]
+        }
+        ```
+    - 
+        ```
+        
         ```

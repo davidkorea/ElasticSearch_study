@@ -98,7 +98,7 @@ https://artifacts.elastic.co/downloads/logstash/logstash-7.1.0.tar.gz , version7
         ```
 2. Demo tokenizer
     - ik_smart
-        ```html
+        ```json
         POST _analyze
         {
           "analyzer": "ik_smart",
@@ -126,7 +126,7 @@ https://artifacts.elastic.co/downloads/logstash/logstash-7.1.0.tar.gz , version7
         }
         ```
     - ik_max_word
-        ```
+        ```json
         POST _analyze
         {
           "analyzer": "ik_max_word",

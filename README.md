@@ -210,6 +210,7 @@ https://artifacts.elastic.co/downloads/logstash/logstash-7.1.0.tar.gz , version7
         }
         ```
 # 4. icu_analyzer
+- Innstall
 ```
 [root@bf89bfd7e1a7 elasticsearch]# ./bin/elasticsearch-plugin install analysis-icu
 -> Downloading analysis-icu from elastic
@@ -227,4 +228,47 @@ Restarting cerebro ... done
 Restarting es7_02  ... done
 Restarting es7_01  ... done
 Restarting kibana7 ... done
+```
+- Demo
+```
+POST _analyze
+{
+  "analyzer": "icu_analyzer",
+  "text": "中华人民共和国国歌"
+}
+```
+
+```
+{
+  "tokens" : [
+    {
+      "token" : "中华",
+      "start_offset" : 0,
+      "end_offset" : 2,
+      "type" : "<IDEOGRAPHIC>",
+      "position" : 0
+    },
+    {
+      "token" : "人民",
+      "start_offset" : 2,
+      "end_offset" : 4,
+      "type" : "<IDEOGRAPHIC>",
+      "position" : 1
+    },
+    {
+      "token" : "共和国",
+      "start_offset" : 4,
+      "end_offset" : 7,
+      "type" : "<IDEOGRAPHIC>",
+      "position" : 2
+    },
+    {
+      "token" : "国歌",
+      "start_offset" : 7,
+      "end_offset" : 9,
+      "type" : "<IDEOGRAPHIC>",
+      "position" : 3
+    }
+  ]
+}
 ```

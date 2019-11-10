@@ -1,5 +1,47 @@
 # ElasticSearch_study
 
+After 6.X version, one `index`(db) should and can only have one `type`(table).
+- if you have created 
+    ```
+    POST user/_doc
+    {
+        "name":"david".
+        "age":12
+    }
+    ```
+- then, you cannot exec 
+    ```
+    POST user/abc
+    {
+        "id":"1234",
+        "pw":"fghjk"
+    }
+    ```
+    end up with error
+    ```
+    {
+      "error": {
+        "root_cause": [
+          {
+            "type": "illegal_argument_exception",
+            "reason": "Rejecting mapping update to [user] as the final mapping would have more than 1 type: [_doc, abc]"
+          }
+        ],
+        "type": "illegal_argument_exception",
+        "reason": "Rejecting mapping update to [user] as the final mapping would have more than 1 type: [_doc, abc]"
+      },
+      "status": 400
+    }
+    ```
+
+
+
+
+
+
+
+
+-----
 
 # 1. Install by docker-compose
 

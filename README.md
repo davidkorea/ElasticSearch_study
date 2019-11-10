@@ -81,9 +81,48 @@ After 6.X version, one `index`(db) should and can only have one `type`(table).
       }
     ]
     ```
-
-
-
+### 搜索，查询
+1. 搜索整个index
+    ```
+    POST user/_doc/_search
+    ```
+2. 模糊搜索
+    ```
+    POST user/_doc/_search?q=haha
+    ```
+    ```json
+    "hits" : [
+      {
+        "_index" : "user",
+        "_type" : "_doc",
+        "_id" : "1",
+        "_score" : 0.2876821,
+        "_source" : {
+          "name" : "david",
+          "haha" : "haha"
+        }
+      },
+      {
+        "_index" : "user",
+        "_type" : "_doc",
+        "_id" : "2",
+        "_score" : 0.12244577,
+        "_source" : {
+          "name" : "mike",
+          "age" : "18",
+          "haha" : "haha aaa",
+          "heihei" : "hahahha"
+        }
+      }
+    ]
+    ```
+3. 精确茶粥
+    ```
+    POST user/_doc/_search?q=_id:2
+    ```
+    ```
+    POST user/_doc/_search?q=name:david
+    ```
 
 -----
 

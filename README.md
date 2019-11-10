@@ -147,7 +147,10 @@ After 6.X version, one `index`(db) should and can only have one `type`(table).
     ```
     POST movies/_doc/_search?q=title:"beautiful mind"
     ```
-
+    4. 两个单词之间，指定可以存在其他单词的个数
+    ```
+    POST movies/_doc/_search?q=title:"beautiful mind"~2
+    ```
 
 
 

@@ -48,7 +48,7 @@ After 6.X version, one `index`(db) should and can only have one `type`(table).
     - `POST user/_doc/_search`, all data in `user`
     - `POST user/_doc/_search?1=_id:1`, seach the data which `_id=1`
     - POST canbe changed by PUT
-    ```
+    ```json
     {
         "_index" : "user",
         "_type" : "_doc",
@@ -62,7 +62,25 @@ After 6.X version, one `index`(db) should and can only have one `type`(table).
     ```
 2. 删除已有文档，再重新创建
 
-
+    ```json
+    POST user/_doc/2
+    {
+      "user":"mike"
+    }
+    ```
+    ```json
+    "hits" : [
+      {
+        "_index" : "user",
+        "_type" : "_doc",
+        "_id" : "2",
+        "_score" : 1.0,
+        "_source" : {
+          "user" : "mike"
+        }
+      }
+    ]
+    ```
 
 
 

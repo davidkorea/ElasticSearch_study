@@ -1,5 +1,6 @@
 # ElasticSearch_study
 
+### 创建新index，type，document数据
 After 6.X version, one `index`(db) should and can only have one `type`(table).
 - if you have created 
     ```json
@@ -33,8 +34,33 @@ After 6.X version, one `index`(db) should and can only have one `type`(table).
       "status": 400
     }
     ```
-
-
+### 更新已有数据
+1. 增加一个字段
+    ```json
+    POST user/_doc/1/_update
+    {
+        "doc":{
+            "haha":"haha"
+        }
+    }
+    ```
+    查询更新后的数据
+    - `POST user/_doc/_search`, all data in `user`
+    - `POST user/_doc/_search?1=_id:1`, seach the data which `_id=1`
+    - POST canbe changed by PUT
+    ```
+    {
+        "_index" : "user",
+        "_type" : "_doc",
+        "_id" : "1",
+        "_score" : 1.0,
+        "_source" : {
+          "name" : "david",
+          "haha" : "haha"
+        }
+    },
+    ```
+2. 删除已有文档，再重新创建
 
 
 

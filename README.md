@@ -116,13 +116,17 @@ After 6.X version, one `index`(db) should and can only have one `type`(table).
       }
     ]
     ```
-3. 精确茶粥
+3. 精确查找
     ```
     POST user/_doc/_search?q=_id:2
     ```
     ```
     POST user/_doc/_search?q=name:david
+
+    POST user/_doc/_search?q=david&df=name
     ```
+    q = query
+    df = default
 
 -----
 

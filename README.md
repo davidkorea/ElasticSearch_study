@@ -129,8 +129,7 @@ After 6.X version, one `index`(db) should and can only have one `type`(table).
     df = default
 
 4. 条件搜索
-
-**`AND`，`OR`，`NOT`，`TO`, `+`, `-`，`()`，`%2B`，`""`，`*`**
+**`AND`，`OR`，`NOT`，`TO`, `+`, `-`，`()`，`%2B`，`""`，`*` **
 
     1. 至少一个
     ```

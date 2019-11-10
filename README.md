@@ -57,9 +57,7 @@
 - `docker-compose up` again
 
 
-
-
-
+-----
 
 # 2. Logstash 
 https://artifacts.elastic.co/downloads/logstash/logstash-7.1.0.tar.gz , version7.1.0 needs to match es version
@@ -69,3 +67,29 @@ https://artifacts.elastic.co/downloads/logstash/logstash-7.1.0.tar.gz , version7
   [ERROR][logstash.javapipeline    ] A plugin had an unrecoverable error. Will restart this plugin.
   Error: Permission denied - Permission denied
   ```
+
+-----
+
+# 3. Analyzer分词
+
+1. install plugin for **EVERY** ElasticSearch docker node
+
+    - `docker exec -it DOCKER_ID /bin/bash`
+        ```
+        [root@ae02ee75b357 elasticsearch]# ./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.1.0/elasticsearch-analysis-ik-7.1.0.zip
+        -> Downloading https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.1.0/elasticsearch-analysis-ik-7.1.0.zip
+        [=================================================] 100%?? 
+        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        @     WARNING: plugin requires additional permissions     @
+        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        * java.net.SocketPermission * connect,resolve
+        See http://docs.oracle.com/javase/8/docs/technotes/guides/security/permissions.html
+        for descriptions of what these permissions allow and the associated risks.
+
+        Continue with installation? [y/N]y
+        -> Installed analysis-ik
+        ```
+    - Restart **EVERY** ElasticSearch `docker restart DOCKER_ID`
+        ```
+        [root@localhost ~]# docker restart ae02ee75b357
+        ```

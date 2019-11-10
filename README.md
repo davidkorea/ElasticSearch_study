@@ -210,6 +210,10 @@ https://artifacts.elastic.co/downloads/logstash/logstash-7.1.0.tar.gz , version7
         }
         ```
 # 4. icu_analyzer
+
+> - 中文分词时使用的是post方法 ，而之前你用的是get方法，有什么区别吗？ 我用get进行分词也好像是没有什么问题，解答一下吗？
+> - 查询时get和post可以混着用，一般用post更加好，因为不会有uri 参数过长的问题。_analyze api也一样
+
 - Innstall
 ```
 [root@bf89bfd7e1a7 elasticsearch]# ./bin/elasticsearch-plugin install analysis-icu

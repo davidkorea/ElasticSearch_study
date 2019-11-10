@@ -129,7 +129,8 @@ After 6.X version, one `index`(db) should and can only have one `type`(table).
     df = default
 
 4. 条件搜索
-`AND`，`OR`，`NOT`，`TO`, `+`, `-`，`()`，`%2B`，`""`，
+
+**`AND`，`OR`，`NOT`，`TO`, `+`, `-`，`()`，`%2B`，`""`，`*`**
 
     1. 至少一个
     ```
@@ -140,12 +141,11 @@ After 6.X version, one `index`(db) should and can only have one `type`(table).
     2. 两个同时存在
     ```
     POST movies/_doc/_search?q=title:(beautiful AND mind)
-    POST movies/_doc/_search?q=title:(%2Bbeautiful %2Bmind)
+    POST movies/_doc/_search?q=title:(%2Bbeautiful %2Bmind)   # 两个词之间可以存在其他单词
     ```
     ```
     GET /movies/_search?q=title:beautiful AND year:[2002 TO 2018]
     ```
-    - 两个词之间可以存在其他单词
     3. 连续出现的两个单词
     ```
     POST movies/_doc/_search?q=title:"beautiful mind"
@@ -154,7 +154,10 @@ After 6.X version, one `index`(db) should and can only have one `type`(table).
     ```
     POST movies/_doc/_search?q=title:"beautiful mind"~2
     ```
-
+    5. 通配符
+    ```
+    GET /movies/_search?q=title:b*
+    ```
 
 
 

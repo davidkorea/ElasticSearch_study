@@ -156,6 +156,12 @@ After 6.X version, one `index`(db) should and can only have one `type`(table).
     ```
     GET /movies/_search?q=title:b*
     ```
+    6. 数字范围选择
+    ```
+    GET movies/_doc/_search?q=year:>=2018
+    GET movies/_doc/_search?q=year:[2018 TO *]
+    GET movies/_doc/_search?q=year:[2017 TO 2018]
+    ```
 
 
 

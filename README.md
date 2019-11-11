@@ -128,7 +128,7 @@ After 6.X version, one `index`(db) should and can only have one `type`(table).
     q = query
     df = default
 
-4. 条件搜索 **`AND`，`OR`，`NOT`，`TO`, `+`, `-`，`*`，`()`，`%2B`，`""`**
+4. 条件搜索 **`AND`，`OR`，`NOT`，`TO`, `+`, `-`，`*`，`()`，`%2B`，`""`，`?`**
 
     1. 至少一个
     ```
@@ -155,6 +155,7 @@ After 6.X version, one `index`(db) should and can only have one `type`(table).
     5. 通配符
     ```
     GET /movies/_search?q=title:b*
+    GET /movies/_search?q=title:b? # tiele中有一个单词首字母为b，且一共由2个字母组成
     ```
     6. 数字范围选择
     ```
